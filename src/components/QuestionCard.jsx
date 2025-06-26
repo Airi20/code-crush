@@ -7,9 +7,9 @@ const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
   useEffect(() => {
     setResult(null)
     // 問題が変わったらcontainerにフォーカスを移動させてボタンのフォーカス解除
-    if (containerRef.current) {
-      containerRef.current.focus()
-    }
+    //if (containerRef.current) {
+      //containerRef.current.focus()
+    //}
   }, [question])
 
   const handleClick = (isCorrect) => {
