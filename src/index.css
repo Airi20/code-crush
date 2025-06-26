@@ -58,7 +58,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #fff;
   }
   a:hover {
     color: #747bff;
@@ -68,20 +68,28 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 600px) {
+  .card pre {
+    font-size: 1.1rem;
+  }
+}
+
 .card pre {
-  font-size: 1.6rem; /* 問題文は一番大きく */
+  font-size: 1.4rem;
   margin-bottom: 1rem;
+  overflow-x: auto;
+  white-space: pre-wrap; /* 折返し＆横スクロール */
 }
 
 .card p.hint {
-  font-size: 1.1rem; /* ヒントは選択肢よりちょい大きめだけど控えめに */
+  font-size: 1.0rem;
   color: #aaa;
   margin-bottom: 1rem;
 }
 
 .card button:hover {
   border-color: #646cff;
-  font-size: 1rem; /* 選択肢は普通サイズで */
+  font-size: 1rem;
   padding: 0.6rem 1.2rem;
   margin-right: 0.8rem;
   margin-bottom: 0.8rem;
