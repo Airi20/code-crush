@@ -9,7 +9,11 @@ const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
     // 問題が変わったらcontainerにフォーカスを移動させてボタンのフォーカス解除
     //if (containerRef.current) {
       //containerRef.current.focus()
+
     //}
+    if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur()
+    }
   }, [question])
 
   const handleClick = (isCorrect) => {
