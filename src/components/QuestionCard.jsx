@@ -5,10 +5,12 @@ const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
   const buttonsRef = useRef([]) // ボタン要素の参照を保持
 
   useEffect(() => {
-    setResult(null)
-    // 問題が変わったらボタンのフォーカスを外す
+  setResult(null)
+  setTimeout(() => {
     buttonsRef.current.forEach(btn => btn && btn.blur())
-  }, [question])
+  }, 0)
+}, [question])
+
 
   const handleClick = (isCorrect) => {
     if (result !== null) return
