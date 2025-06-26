@@ -31,6 +31,7 @@ const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
         {question.options.map((opt, idx) => (
           <button
             key={idx}
+            tabIndex={-1} //フォーカスなし
             onClick={() => handleClick(idx === question.correct)}
             disabled={result !== null}
           >
