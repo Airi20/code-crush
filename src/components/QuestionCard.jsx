@@ -23,7 +23,7 @@ const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
     <div
       className="card"
       ref={containerRef}
-      tabIndex={-1}  // ここ重要！フォーカス移動先として機能
+      //tabIndex={-1}  // ここ重要！フォーカス移動先として機能
     >
       <pre>{question.code}</pre>
       <p className="hint">ヒント: {question.hint}</p>
@@ -31,7 +31,6 @@ const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
         {question.options.map((opt, idx) => (
           <button
             key={idx}
-            tabIndex={-1} //フォーカスなし
             onClick={() => handleClick(idx === question.correct)}
             disabled={result !== null}
           >
