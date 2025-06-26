@@ -2,15 +2,15 @@ import React, { useState, useEffect, useRef } from 'react'
 
 const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
   const [result, setResult] = useState(null)
-  const buttonsRef = useRef([]) // ボタン要素の参照を保持
+  const containerRef = useRef(null)
 
   useEffect(() => {
-  setResult(null)
-  setTimeout(() => {
-    buttonsRef.current.forEach(btn => btn && btn.blur())
-  }, 0)
-}, [question])
-
+    setResult(null)
+    // 問題が変わったらcontainerにフォーカスを移動させてボタンのフォーカス解除
+    if (containerRef.current) {
+      containerRef.current.focus()
+    }
+  }, [question])
 
   const handleClick = (isCorrect) => {
     if (result !== null) return
@@ -20,14 +20,17 @@ const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
   }
 
   return (
-    <div className="card">
+    <div
+      className="card"
+      ref={containerRef}
+      tabIndex={-1}  // ここ重要！フォーカス移動先として機能
+    >
       <pre>{question.code}</pre>
       <p className="hint">ヒント: {question.hint}</p>
       <div>
         {question.options.map((opt, idx) => (
           <button
             key={idx}
-            ref={el => (buttonsRef.current[idx] = el)} // ref登録
             onClick={() => handleClick(idx === question.correct)}
             disabled={result !== null}
           >
