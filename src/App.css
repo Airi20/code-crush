@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.warning-message {
+  display: none; /* 初期は非表示 */
+}
+
+@media screen and (orientation: portrait) {
+  .warning-message {
+    display: block; /* 縦向きだけ表示 */
+  }
+}
+

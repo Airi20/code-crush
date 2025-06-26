@@ -23,20 +23,24 @@ const App = () => {
 
   return (
     <div className="app">
-      {current < questions.length ? (
-        <QuestionCard
-          question={questions[current]}
-          onAnswer={handleAnswer}
-          answered={answered}
-          setAnswered={setAnswered}
-        />
-      ) : (
-        <div>
-          <h2>お疲れ！🎉</h2>
-          <p>スコア: {score} / {questions.length}</p>
-        </div>
-      )}
+  <p className="warning-message" style={{ color: 'orange', marginBottom: '1rem' }}>
+    ⚠️ スマホは横向き推奨！画面が見切れちゃうよ〜📱➡️📴
+  </p>
+  {current < questions.length ? (
+    <QuestionCard
+      question={questions[current]}
+      onAnswer={handleAnswer}
+      answered={answered}
+      setAnswered={setAnswered}
+    />
+  ) : (
+    <div>
+      <h2>お疲れ！🎉</h2>
+      <p>スコア: {score} / {questions.length}</p>
     </div>
+  )}
+</div>
+
   )
 }
 
