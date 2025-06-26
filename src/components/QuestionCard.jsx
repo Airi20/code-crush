@@ -5,16 +5,13 @@ const QuestionCard = ({ question, onAnswer, answered, setAnswered }) => {
   const containerRef = useRef(null)
 
   useEffect(() => {
-    setResult(null)
-    // 問題が変わったらcontainerにフォーカスを移動させてボタンのフォーカス解除
-    //if (containerRef.current) {
-      //containerRef.current.focus()
+  setResult(null)
 
-    //}
-    if (document.activeElement && document.activeElement.blur) {
-        document.activeElement.blur()
-    }
-  }, [question])
+  // ここでフォーカス強制解除！
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur()
+  }
+}, [question])
 
   const handleClick = (isCorrect) => {
     if (result !== null) return
