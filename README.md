@@ -1,6 +1,7 @@
 ### JS文法が学べるアプリ
 
-<img src="./code-crash.jpg" width="300" /> <img src="./code-score.jpg" width="300" />
+<img src="./code-crash.jpg" width="300" />
+<img src="./code-score.jpg" width="300" />
 
 
 
